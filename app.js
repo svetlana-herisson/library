@@ -1,16 +1,17 @@
 const express = require('express');
+const logger = require('./src/middleware/logger');
+const error404 = require('./src/middleware/err-404')
+const bookRouter = require('./src/routes/book');
+const unload = require('./src/middleware/unload');
+
 const app = express();
 
-const logger =require('./middleware/logger');
-const error404 = require('./middleware/err-404')
-const bookRouter = require('./routes/book');
-const unload = require('./middleware/unload');
-
-app.use('/api/books', bookRouter)
 app.use(logger);
-app.use(error404)
+app.use(express.json())
+app.use('/', bookRouter)
 
-router.post('/', unload.single('fileBook'), creatBook)
+
+app.use(error404)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT)
