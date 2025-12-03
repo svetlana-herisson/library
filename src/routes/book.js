@@ -1,6 +1,7 @@
 const express = require('express');
 const {Book, store} = require('../books')
 const { v4: uuid } = require('uuid');
+const unload = require('../middleware/unload');
 const router = express.Router();
 
 
@@ -24,7 +25,7 @@ router.get('/:id', (req, res) => {
 }) // находим книгу по ID
 
 
-router.post('/', (req, res) => {
+router.post('/', unload.single('/unload'), (req, res) => {
     const { books } = store
     const { title, description, authors, favorite, fileCover, fileName } = req.body
 
@@ -53,7 +54,7 @@ router.delete('/:id', (req, res) => {
     if (index === -1) return res.status(404).json('404 | Книга не найдена');
 
     books.splice(index, 1)
-    res.status(204).send('OK')
+    res.status(204).send()
 }) // Удаление книги по ID
 
 router.post('/autorization', (req, res) => {

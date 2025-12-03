@@ -2,7 +2,6 @@ const express = require('express');
 const logger = require('./src/middleware/logger');
 const error404 = require('./src/middleware/err-404')
 const bookRouter = require('./src/routes/book');
-const unload = require('./src/middleware/unload');
 
 const app = express();
 
