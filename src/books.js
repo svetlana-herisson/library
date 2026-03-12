@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 class Book {
-    constructor(id = uuid(), title = '', description = '', authors = '', favorite = Boolean, fileCover = '', fileName = '', fileBook = "") {
+    constructor(id = uuid(), title = '', description = '', authors = '', favorite = '', fileCover = '', fileName = '', fileBook = "") {
         this.id = id;
         this.title = title;
         this.description = description;

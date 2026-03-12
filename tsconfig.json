@@ -1,0 +1,79 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    // "rootDir": "./src", ,
+    "outDir": "./dist",
+    // "outFile": "./dist/app.js",
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2016",
+    "types": ["reflect-metadata"],
+    "noImplicitAny": true, // все переменные, аргументы, свойства - должны иметь типы
+    "noImplicitThis": true, // не позволяет использовать This в контексте в котором вы ничего не сказали
+    "strictNullChecks": false, // включеная говорит, что Null, undefined - являются самостоятельными типами данных
+    // "strictPropertyInitialization": true, //  если мы объявили свойство в классе, то мы обязаны присвоить ему хоть какое-то значение 
+    "strictFunctionTypes": true, // будет выдавать ошибку в случае несоответсвии сигнатуры функции
+    "strictBindCallApply": true, // Последовательность передачи атргументов с помощью вызова метода Bind, Call или Apply должна быть четко регламинтирована
+        //a shortcut enabling 6 rules above
+    // For nodejs:
+    "lib": ["ES6", "DOM"],
+    // "types": ["node"],
+    // // and npm install -D @types/node
+    "experimentalDecorators": true, // включает поддержку декораторов;
+    "emitDecoratorMetadata": true, // генерирует метаданные для декораторов;
+
+
+    // // Other Outputs
+    "sourceMap": true, // показывает в каком файле ошибка
+    "preserveConstEnums": true, // один из способов оптимизации кода.
+          //  Посли компиляции заменяет на реальное значение, которое 
+          // было присвоено в перечислении
+    "removeComments": true, // удаляет комментарии, которые присутсвуют 
+        // в ts коде
+    
+    // "declaration": true,
+    // "declarationMap": true,
+
+    // // Stricter Typechecking Options
+    // "noUncheckedIndexedAccess": true,
+    // "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true, //  активная опция, которая заставляет 
+          // компилятор выводить сообщения о неиспользуемых элементах кода. 
+          // Если в коде что-то объявлено, но не используется, будет возникать 
+          // ошибка за исключением параметров, идентификаторы которых 
+          // начинаются с нижней черты, например, _prop
+    "pretty": true, //  раскрашивает в разные цвета сообщения, 
+          // выводимые в консоль, делает их более понятными
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    // "jsx": "react-jsx",
+    // "verbatimModuleSyntax": true,
+    // "isolatedModules": true,
+    // "noUncheckedSideEffectImports": true,
+    // "moduleDetection": "force",
+    // "skipLibCheck": true,
+  },
+
+//   "include": [
+//     "src/**/*"
+// , "Game src/entities.ts", "Game src/interfaces.ts", "Game src/types.ts"  ], // говорит какие файлы должны быть включены в сборку
+
+//   "exclude": [
+//     "node_modeles",
+//     "**/*.spec.ts"
+//   ] // говорит какие файлы должны быть исключены в сборке
+}
+// * — соответствует нулю или более символам (кроме разделителя директорий)
+// **/ — рекурсивно соответствует любой поддиректории
