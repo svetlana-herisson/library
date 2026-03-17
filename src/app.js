@@ -1,19 +1,20 @@
 const express = require('express');
-const logger = require('../middleware/logger');
-const error404 = require('../middleware/err-404')
-const apiRouter = require('./routes/apiRouter');
+const logger = require('./middleware/logger');
+const error404 = require('./middleware/err-404')
+// const apiRouter = require('./routes/apiRouter');
 const indexRouter = require('./routes/indexRouter'); 
 const ejsRouter = require('./routes/books');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const { myContainer } = require("./inversify.config") ;
+// const { myContainer } = require("./inversify.config") ;
+require('dotenv').config();
 
 
 
 const app = express();
 
-// app.use(logger);
-// app.use(express.json())
+app.use(logger);
+app.use(express.json())
 // app.use('/', bookRouterApi)
 
 app.use(express.urlencoded());
@@ -36,7 +37,10 @@ async function start(PORT, UrlDB) {
     }
 }
 
-const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/library';
-const PORT = process.env.PORT || 3000;
+// const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/library';
+// const PORT = process.env.PORT || 3000;
 
-start(PORT, UrlDB)
+// start(PORT, DB_URI)
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT)
