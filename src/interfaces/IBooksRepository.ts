@@ -1,9 +1,10 @@
 import  IBook  from './IBook';
 
+
 export interface IBooksRepository {
-  createBook(book: Omit<IBook, 'id'>): Promise<IBook>;
-  getBook(id: string): Promise<IBook | null>;
-  getBooks(): Promise<IBook[]>;
-  updateBook(id: string, book: Partial<IBook>): Promise<IBook | null>;
+  getBooks(): Promise<any[]>;
+  getBook(id: string): Promise<any | null>;
+  createBook(book: any): Promise<any>;
+  updateBook(id: string, book: any): Promise<any | null>;
   deleteBook(id: string): Promise<boolean>;
 }
